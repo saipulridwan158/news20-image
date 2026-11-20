@@ -19,7 +19,7 @@ news in one image" bounty, $250 in USDC.
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-The program copies `entry.png` (1024×1024, ~132 KB) to the output directory.
+The program copies `entry.png` (1024×1024, about 130 KB) to the output directory.
 
 ---
 

@@ -194,7 +194,7 @@ for n, (tag, text) in enumerate(briefs):
     for k, line in enumerate(body):
         d.text((body_x, y + 5 + k * 20), line, font=px(15, False), fill=(226, 231, 242))
 d.line((PAD, 990, W - PAD, 990), fill=(58, 68, 94), width=2)
-d.text((PAD, 996), "compiled 20 Nov 2026 \u00b7 twelve stories, six regions",
+d.text((PAD, 996), "compiled 20 Nov 2026 \u00b7 twelve stories \u00b7 six regions",
        font=px(14, False), fill=(128, 138, 158))
 
 sheet.save("/home/agentuser/makefun/entries/news20/entry.png", optimize=True)
