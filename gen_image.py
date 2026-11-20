@@ -39,7 +39,7 @@ def px(size, strong=True):
 
 def wrap(draw, words, fnt, width):
     """Wrap a phrase into lines no wider than `width`."""
-    lines, cur = [], ""
+    lines, cur = "", ""
     for w in words.split():
         probe = f"{cur} {w}".strip()
         if draw.textlength(probe, font=fnt) <= width:
@@ -59,7 +59,7 @@ d = ImageDraw.Draw(sheet)
 # ---------------------------------------------------------------- masthead
 d.text((PAD, 20), "THE WORLD TODAY", font=px(58), fill=(255, 255, 255))
 d.text((PAD + 2, 92), "FRIDAY 20 NOVEMBER 2026", font=px(30), fill=GOLD)
-d.text((PAD + 2, 128), "twelve stories from one day  \u00b7  Brexit reset, markets slide, cyclone hits India",
+d.text((PAD + 2, 128), "twelve stories from one day  ·  Brexit reset, markets slide, cyclone hits India",
        font=px(18, False), fill=(152, 162, 182))
 d.line((PAD, 156, W - PAD, 156), fill=(58, 68, 94), width=3)
 
@@ -67,7 +67,7 @@ d.line((PAD, 156, W - PAD, 156), fill=(58, 68, 94), width=3)
 LEAD = (PAD, 168, 646, 470)
 d.rounded_rectangle(LEAD, radius=14, fill=A)
 d.rounded_rectangle((PAD, 168, PAD + 9, 470), radius=4, fill=CRIM)
-chip_lbl = "EUROPE  \u00b7  SUMMIT"
+chip_lbl = "EUROPE  ·  SUMMIT"
 chip_w = d.textlength(chip_lbl, font=px(14))
 d.rounded_rectangle((PAD + 24, 184, PAD + 44 + chip_w, 210), radius=10, fill=CRIM)
 d.text((PAD + 34, 187), chip_lbl, font=px(14), fill=(255, 255, 255))
@@ -76,10 +76,9 @@ d.text((PAD + 34, 187), chip_lbl, font=px(14), fill=(255, 255, 255))
 gx, gy, gr = PAD + 96, 322, 66
 d.ellipse((gx - gr, gy - gr, gx + gr, gy + gr), fill=(24, 46, 110))
 d.ellipse((gx - gr, gy - gr, gx + gr, gy + gr), outline=(255, 204, 0), width=3)
-import math as _m
 for k in range(12):
-    ang = _m.pi * 2 * k / 12 - _m.pi / 2
-    sx, sy = gx + 46 * _m.cos(ang), gy + 46 * _m.sin(ang)
+    ang = math.pi * 2 * k / 12 - math.pi / 2
+    sx, sy = gx + 46 * math.cos(ang), gy + 46 * math.sin(ang)
     d.polygon([(sx, sy - 6), (sx + 5, sy + 4), (sx - 5, sy + 4)], fill=(255, 204, 0))
 d.rounded_rectangle((gx - 44, gy - 4, gx - 4, gy + 24), radius=4, fill=(0, 36, 125))
 d.line((gx - 44, gy + 2, gx - 4, gy + 2), fill=(255, 255, 255), width=3)
@@ -96,8 +95,8 @@ ty = 232
 for line in head:
     d.text((lead_x, ty), line, font=px(30), fill=INK)
     ty += 35
-for line in wrap(d, "PM signs the SPS food deal worth up to \u00a35.1bn a year, links carbon markets to skip "
-                    "\u00a36.5bn of CBAM charges, and caps a 100,000-a-year youth mobility scheme from 2028.",
+for line in wrap(d, "PM signs the SPS food deal worth up to £5.1bn a year, links carbon markets to skip "
+                    "£6.5bn of CBAM charges, and caps a 100,000-a-year youth mobility scheme from 2028.",
                  px(17, False), lead_room)[:6]:
     d.text((lead_x, ty + 4), line, font=px(17, False), fill=MUTE)
     ty += 22
@@ -194,7 +193,7 @@ for n, (tag, text) in enumerate(briefs):
     for k, line in enumerate(body):
         d.text((body_x, y + 5 + k * 20), line, font=px(15, False), fill=(226, 231, 242))
 d.line((PAD, 990, W - PAD, 990), fill=(58, 68, 94), width=2)
-d.text((PAD, 996), "compiled 20 Nov 2026 \u00b7 twelve stories \u00b7 six regions",
+d.text((PAD, 996), "compiled 20 Nov 2026 · twelve stories · six regions",
        font=px(14, False), fill=(128, 138, 158))
 
 sheet.save("/home/agentuser/makefun/entries/news20/entry.png", optimize=True)
