@@ -39,7 +39,7 @@ def px(size, strong=True):
 
 def wrap(draw, words, fnt, width):
     """Wrap a phrase into lines no wider than `width`."""
-    lines, cur = "", ""
+    lines, cur = [], ""
     for w in words.split():
         probe = f"{cur} {w}".strip()
         if draw.textlength(probe, font=fnt) <= width:
